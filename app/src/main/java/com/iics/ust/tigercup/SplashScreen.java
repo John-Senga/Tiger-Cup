@@ -13,7 +13,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        Log.d("Log","Your application has started");
+        Log.d("Log","The application has started");
 
         new Handler().postDelayed(new Runnable(){
             @Override

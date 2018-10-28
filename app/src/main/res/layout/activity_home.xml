@@ -20,33 +20,37 @@
             android:orientation="vertical" >
 
             <ImageButton
-                android:id="@+id/imageButton7"
+                android:id="@+id/cafe"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:onClick="goToShops"
                 app:srcCompat="@drawable/sample"
                 tools:layout_editor_absoluteX="58dp"
                 tools:layout_editor_absoluteY="85dp" />
 
             <ImageButton
-                android:id="@+id/imageButton8"
+                android:id="@+id/study_hub"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:onClick="goToShops"
                 app:srcCompat="@drawable/sample"
                 tools:layout_editor_absoluteX="58dp"
                 tools:layout_editor_absoluteY="85dp" />
 
             <ImageButton
-                android:id="@+id/imageButton9"
+                android:id="@+id/leisure"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:onClick="goToShops"
                 app:srcCompat="@drawable/sample"
                 tools:layout_editor_absoluteX="58dp"
                 tools:layout_editor_absoluteY="85dp" />
 
             <ImageButton
-                android:id="@+id/imageButton10"
+                android:id="@+id/relaxation"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:onClick="goToShops"
                 app:srcCompat="@drawable/sample"
                 tools:layout_editor_absoluteX="58dp"
                 tools:layout_editor_absoluteY="85dp" />
