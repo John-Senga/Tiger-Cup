@@ -2,17 +2,12 @@ package com.iics.ust.tigercup;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
-public class Shops extends AppCompatActivity {
+public class ShopModal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shops);
-    }
-
-    public void viewShopModal(View v){
-
+        setContentView(R.layout.activity_shop_modal);
     }
 }

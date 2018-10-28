@@ -33,6 +33,5 @@ public class Home extends AppCompatActivity {
 
         i = new Intent(this, Shops.class);
         startActivity(i);
-
     }
 }
