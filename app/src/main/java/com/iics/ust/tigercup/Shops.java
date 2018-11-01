@@ -16,7 +16,6 @@ import java.util.List;
 
 public class Shops extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,8 @@ public class Shops extends AppCompatActivity {
             btn.setText(shop.name);
 
             //Image
-            btn.setBackgroundResource(R.drawable.sample_2);
+            int resourceId = getResources().getIdentifier(shop.img, "drawable", getPackageName());
+            btn.setBackgroundResource(resourceId);
 
             //Click Listener
             btn.setOnClickListener(new OnClickListener() {
@@ -62,8 +62,8 @@ public class Shops extends AppCompatActivity {
             String line;
             x.readLine();
             while ((line = x.readLine()) != null) {
-                String[]value = line.split(",");
-                ShopData data = new ShopData(value[0], null);
+                String[]val = line.split(",");
+                ShopData data = new ShopData(val[0], val[1], val[2], val[3], val[4]);
                 shops.add(data);
             }
             x.close();
@@ -73,6 +73,5 @@ public class Shops extends AppCompatActivity {
         }
         return null;
     }
-
 
 }
