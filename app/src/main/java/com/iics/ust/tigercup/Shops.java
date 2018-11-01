@@ -6,12 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class Shops extends AppCompatActivity {
-
-    private ImageButton button;
     private String[]Data = {
         "iChill Theater Cafe", "Cafe Kivhan Coffee", "Figaro Coffee Company", "Beyond Coffee Manila",
         "Amo Yamie Crib España", "Starbucks Coffee Dapitan Branch", "Café Churro", "Coffee Indulgence",
@@ -29,15 +28,15 @@ public class Shops extends AppCompatActivity {
         LinearLayout layout = findViewById(R.id.shopContainer);
 
         for(int i = 0; i<Data.length; i++){
-            ImageButton shop = new ImageButton(this);
+            Button shop = new Button(this);
 
             //Width and Height
             shop.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
 
             //Image
-            shop.setImageResource(R.drawable.sample_2);
+            shop.setBackgroundResource(R.drawable.sample_2);
 
-            //Modal
+            //Click Listener
             shop.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
@@ -46,7 +45,7 @@ public class Shops extends AppCompatActivity {
                     dialog.show();
                 }
             });
-            
+
             layout.addView(shop);
         }
     }

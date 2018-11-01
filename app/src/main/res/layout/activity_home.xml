@@ -19,41 +19,34 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <ImageButton
+            <Button
                 android:id="@+id/cafe"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:background="@drawable/sample"
                 android:onClick="goToShops"
-                app:srcCompat="@drawable/sample"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
+                android:text="Button" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/study_hub"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:onClick="goToShops"
-                app:srcCompat="@drawable/sample"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
+                android:background="@drawable/sample"
+                android:text="Button" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/leisure"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:onClick="goToShops"
-                app:srcCompat="@drawable/sample"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
+                android:background="@drawable/sample"
+                android:text="Button" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/relaxation"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:onClick="goToShops"
-                app:srcCompat="@drawable/sample"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
+                android:background="@drawable/sample"
+                android:text="Button" />
 
         </LinearLayout>
     </ScrollView>
