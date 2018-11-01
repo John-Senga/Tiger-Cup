@@ -1,24 +1,18 @@
 package com.iics.ust.tigercup;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.iics.ust.tigercup.logic.ShopConfig;
+import com.iics.ust.tigercup.logic.ShopData;
+
 public class Shops extends AppCompatActivity {
-    private String[]shops = {
-        "iChill Theater Cafe", "Cafe Kivhan Coffee", "Figaro Coffee Company", "Beyond Coffee Manila",
-        "Amo Yamie Crib España", "Starbucks Coffee Dapitan Branch", "Café Churro", "Coffee Indulgence",
-        "Cafe-UK", "Starbucks P. Noval", "Floti Cafe", "Seattle's Best", "Cafe-UK Co. - Mendiola",
-        "Starbucks Coffee", "Cafe UK Dapitan", "Wit Avenue Cafe & Bar", "Bo's Coffee", "La Taza",
-        "Amor Bakery", "Mamang Taho Coffee Shop", "Bon AppeTEA - España", "Starbucks Coffee",
-        "Fritzo Cafe", "Hub Urban Coffee"
-    };
+    ShopData[]shops = ShopConfig.getShops();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +22,14 @@ public class Shops extends AppCompatActivity {
         LinearLayout layout = findViewById(R.id.shopContainer);
 
         for(int i = 0; i<shops.length; i++){
+            //Button with Style
             Button shop = new Button(this, null, 0, R.style.ButtonStyle);
 
             //Width and Height
             shop.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
 
             //Text
-            shop.setText(shops[i]);
+            shop.setText(shops[i].name);
 
             //Image
             shop.setBackgroundResource(R.drawable.sample_2);
