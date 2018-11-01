@@ -33,6 +33,9 @@ public class Shops extends AppCompatActivity {
             //Width and Height
             shop.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
 
+            //Text
+            shop.setText("Button");
+
             //Image
             shop.setBackgroundResource(R.drawable.sample_2);
 
