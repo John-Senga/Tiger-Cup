@@ -15,41 +15,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/shopContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <ImageButton
-                android:id="@+id/shop_1"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/sample_2"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-            <ImageButton
-                android:id="@+id/shop_2"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/sample_2"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-            <ImageButton
-                android:id="@+id/shop_3"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/sample_2"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
-
-            <ImageButton
-                android:id="@+id/shop_4"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/sample_2"
-                tools:layout_editor_absoluteX="58dp"
-                tools:layout_editor_absoluteY="85dp" />
+            android:orientation="vertical">
 
         </LinearLayout>
     </ScrollView>
