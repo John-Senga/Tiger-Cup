@@ -12,15 +12,19 @@ import com.iics.ust.tigercup.logic.ShopConfig;
 import com.iics.ust.tigercup.logic.ShopData;
 
 public class Shops extends AppCompatActivity {
-    ShopData[]shops = ShopConfig.getShops();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shops);
+        generateShopButtons();
+    }
 
+    private void generateShopButtons(){
+        ShopData[]shops = ShopConfig.getShops();
+        
         LinearLayout layout = findViewById(R.id.shopContainer);
-
         for(int i = 0; i<shops.length; i++){
             //Button with Style
             Button shop = new Button(this, null, 0, R.style.ButtonStyle);

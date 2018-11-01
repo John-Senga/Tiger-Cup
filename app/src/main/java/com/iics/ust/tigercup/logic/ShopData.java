@@ -6,7 +6,8 @@ public class ShopData {
     public String lat;
     public String lng;
 
-    public ShopData(String name){
+    public ShopData(String name, String img){
         this.name = name;
+        this.img = img;
     }
 }
