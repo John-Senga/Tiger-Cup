@@ -3,13 +3,16 @@ package com.iics.ust.tigercup;
 import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.iics.ust.tigercup.data.ShopConfig;
-import com.iics.ust.tigercup.data.ShopData;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Shops extends AppCompatActivity {
 
@@ -22,24 +25,24 @@ public class Shops extends AppCompatActivity {
     }
 
     private void generateShopButtons(){
-        ShopData[]shops = ShopConfig.getShops();
+        List<ShopData>shops = getShops();
 
         LinearLayout layout = findViewById(R.id.shopContainer);
-        for(int i = 0; i<shops.length; i++){
+        for(ShopData shop: shops){
             //Button with Style
-            Button shop = new Button(this, null, 0, R.style.ButtonStyle);
+            Button btn = new Button(this, null, 0, R.style.ButtonStyle);
 
             //Width and Height
-            shop.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
+            btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
 
             //Text
-            shop.setText(shops[i].name);
+            btn.setText(shop.name);
 
             //Image
-            shop.setBackgroundResource(R.drawable.sample_2);
+            btn.setBackgroundResource(R.drawable.sample_2);
 
             //Click Listener
-            shop.setOnClickListener(new OnClickListener() {
+            btn.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
                     final Dialog dialog = new Dialog(Shops.this);
@@ -48,7 +51,28 @@ public class Shops extends AppCompatActivity {
                 }
             });
 
-            layout.addView(shop);
+            layout.addView(btn);
         }
     }
+
+    private List<ShopData> getShops(){
+        try {
+            BufferedReader x =  new BufferedReader(new InputStreamReader(getAssets().open("shops.csv")));
+            List<ShopData> shops = new ArrayList<>();
+            String line;
+            x.readLine();
+            while ((line = x.readLine()) != null) {
+                String[]value = line.split(",");
+                ShopData data = new ShopData(value[0], null);
+                shops.add(data);
+            }
+            x.close();
+            return shops;
+        } catch (Exception e) {
+            Log.d("Log", e + "");
+        }
+        return null;
+    }
+
+
 }
