@@ -1,4 +1,4 @@
-package com.iics.ust.tigercup.logic;
+package com.iics.ust.tigercup.data;
 
 public class ShopData {
     public String name;

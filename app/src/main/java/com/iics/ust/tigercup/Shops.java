@@ -8,8 +8,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.iics.ust.tigercup.logic.ShopConfig;
-import com.iics.ust.tigercup.logic.ShopData;
+import com.iics.ust.tigercup.data.ShopConfig;
+import com.iics.ust.tigercup.data.ShopData;
 
 public class Shops extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class Shops extends AppCompatActivity {
 
     private void generateShopButtons(){
         ShopData[]shops = ShopConfig.getShops();
-        
+
         LinearLayout layout = findViewById(R.id.shopContainer);
         for(int i = 0; i<shops.length; i++){
             //Button with Style
