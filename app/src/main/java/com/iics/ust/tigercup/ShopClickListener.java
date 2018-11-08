@@ -19,17 +19,15 @@ public class ShopClickListener implements View.OnClickListener {
     @Override
     public void onClick(View v){
         final Dialog dialog = new Dialog(context);
-            dialog.setContentView(R.layout.activity_shop_modal);
+        dialog.setContentView(R.layout.activity_shop_modal);
 
-            //Modal title
-            dialog.setTitle(shop.name);
+        //Modal title
+        dialog.setTitle(shop.name);
 
-            //image
-            ImageView img = dialog.findViewById(R.id.imageView);
-            img.setImageResource(resourceId);
+        //image
+        ImageView img = dialog.findViewById(R.id.imageView);
+        img.setImageResource(resourceId);
 
-
-
-            dialog.show();
+        dialog.show();
     }
 }
