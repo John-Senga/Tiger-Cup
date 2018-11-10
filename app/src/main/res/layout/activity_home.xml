@@ -23,37 +23,33 @@
                 android:id="@+id/cafe"
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/sample"
-                android:onClick="goToShops"
-                android:text="Button" />
+                android:layout_height="201dp"
+                android:background="@drawable/cafe"
+                android:onClick="goToShops" />
 
             <Button
                 android:id="@+id/study_hub"
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/sample"
-                android:onClick="goToShops"
-                android:text="Button" />
+                android:layout_height="201dp"
+                android:background="@drawable/studyhub"
+                android:onClick="goToShops" />
 
             <Button
                 android:id="@+id/leisure"
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/sample"
-                android:onClick="goToShops"
-                android:text="Button" />
+                android:layout_height="201dp"
+                android:background="@drawable/leisure"
+                android:onClick="goToShops" />
 
             <Button
                 android:id="@+id/relaxation"
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/sample"
-                android:onClick="goToShops"
-                android:text="Button" />
+                android:layout_height="201dp"
+                android:background="@drawable/relaxation"
+                android:onClick="goToShops" />
 
         </LinearLayout>
     </ScrollView>
