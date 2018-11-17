@@ -25,7 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/cafe"
-                android:onClick="goToShops" />
+                android:onClick="goToShops"
+                android:text="Cafe" />
 
             <Button
                 android:id="@+id/study_hub"
@@ -33,7 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/studyhub"
-                android:onClick="goToShops" />
+                android:onClick="goToShops"
+                android:text="Study Hub" />
 
             <Button
                 android:id="@+id/leisure"
@@ -41,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/leisure"
-                android:onClick="goToShops" />
+                android:onClick="goToShops"
+                android:text="Leisure" />
 
             <Button
                 android:id="@+id/relaxation"
@@ -49,7 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/relaxation"
-                android:onClick="goToShops" />
+                android:onClick="goToShops"
+                android:text="Relaxation" />
 
         </LinearLayout>
     </ScrollView>
