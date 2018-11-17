@@ -22,7 +22,7 @@ public class ShopClickListener implements View.OnClickListener {
         dialog.setContentView(R.layout.activity_shop_modal);
 
         //Modal title
-        dialog.setTitle(shop.name);
+        dialog.setTitle(shop.Name);
 
         //image
         ImageView img = dialog.findViewById(R.id.imageView);

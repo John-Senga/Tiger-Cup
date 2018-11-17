@@ -6,8 +6,12 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +21,38 @@ public class Shops extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shops);
-        generateShopButtons();
+        getShops();
     }
 
-    private void generateShopButtons(){
-        List<ShopData>shops = getShops();
+    public void getShops(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("shops");
 
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<ShopData> shops = new ArrayList<>();
+                for (DataSnapshot shopSnapshot: dataSnapshot.getChildren()) {
+                    String Name = shopSnapshot.child("Name").getValue().toString();
+                    String Image = shopSnapshot.child("Image").getValue().toString();
+                    String Category = shopSnapshot.child("Image").getValue().toString();
+                    String Latitude = shopSnapshot.child("Image").getValue().toString();
+                    String Longitude = shopSnapshot.child("Image").getValue().toString();
+                    ShopData data = new ShopData(Name, Category, Image, Latitude, Longitude);
+                    shops.add(data);
+                }
+                generateShopButtons(shops);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Log", "Failed to read value.", error.toException());
+            }
+        });
+    }
+
+    private void generateShopButtons(List<ShopData>shops){
         LinearLayout layout = findViewById(R.id.shopContainer);
         for(ShopData shop: shops){
             //Button with Style
@@ -32,10 +62,10 @@ public class Shops extends AppCompatActivity {
             btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
 
             //Text
-            btn.setText(shop.name);
+            btn.setText(shop.Name);
 
             //Image
-            int resourceId = getResources().getIdentifier(shop.img, "drawable", getPackageName());
+            int resourceId = getResources().getIdentifier(shop.Image, "drawable", getPackageName());
             btn.setBackgroundResource(resourceId);
 
             //Click Listener
@@ -44,25 +74,6 @@ public class Shops extends AppCompatActivity {
             //Add button to layout
             layout.addView(btn);
         }
-    }
-
-    private List<ShopData> getShops(){
-        try {
-            BufferedReader x =  new BufferedReader(new InputStreamReader(getAssets().open("shops.csv")));
-            List<ShopData> shops = new ArrayList<>();
-            String line;
-            x.readLine();
-            while ((line = x.readLine()) != null) {
-                String[]val = line.split(",");
-                ShopData data = new ShopData(val[0], val[1], val[2], val[3], val[4]);
-                shops.add(data);
-            }
-            x.close();
-            return shops;
-        } catch (Exception e) {
-            Log.d("Log", e + "");
-        }
-        return null;
     }
 
 }
