@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "393075452540",
+    "firebase_url": "https://tiger-cup-43e97.firebaseio.com",
+    "project_id": "tiger-cup-43e97",
+    "storage_bucket": "tiger-cup-43e97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393075452540:android:ea567cf23f8c127c",
+        "android_client_info": {
+          "package_name": "com.iics.ust.tigercup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393075452540-oae0krog5ujc17ngn994pc0u11dr3rjv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iics.ust.tigercup",
+            "certificate_hash": "f93197ca8cebceca50d1c6af93dee488d8e5c534"
+          }
+        },
+        {
+          "client_id": "393075452540-frc6m1cpcel3dcek3h89j46vl1q82vsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoK_UTOiTPQT3YsVErWRqQZeF929oePHs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393075452540-frc6m1cpcel3dcek3h89j46vl1q82vsn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
