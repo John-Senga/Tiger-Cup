@@ -35,9 +35,9 @@ public class Shops extends AppCompatActivity {
                 for (DataSnapshot shopSnapshot: dataSnapshot.getChildren()) {
                     String Name = shopSnapshot.child("Name").getValue().toString();
                     String Image = shopSnapshot.child("Image").getValue().toString();
-                    String Category = shopSnapshot.child("Image").getValue().toString();
-                    String Latitude = shopSnapshot.child("Image").getValue().toString();
-                    String Longitude = shopSnapshot.child("Image").getValue().toString();
+                    String Category = shopSnapshot.child("Category").getValue().toString();
+                    String Latitude = shopSnapshot.child("Latitude").getValue().toString();
+                    String Longitude = shopSnapshot.child("Longitude").getValue().toString();
                     ShopData data = new ShopData(Name, Category, Image, Latitude, Longitude);
                     shops.add(data);
                 }
