@@ -37,14 +37,20 @@ public class Login extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String loginEmail = email.getText().toString().trim();
                 String loginPassword = password.getText().toString().trim();
+                Boolean loginError = true;
 
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     String userEmail = snapshot.child("email").getValue().toString();
                     String userPassword = snapshot.child("password").getValue().toString();
                     if(loginEmail.equals(userEmail) && loginPassword.equals(userPassword)){
                         login(snapshot.getKey());
+                        loginError = false;
+                        break;
                     }
                 }
+
+                if(loginError)
+                    loginError();
             }
 
             @Override
@@ -65,6 +71,10 @@ public class Login extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    private void loginError(){
+        Toast.makeText(this,"Incorrect username or password", Toast.LENGTH_SHORT).show();
     }
 
     public void goToRegister(View v){
