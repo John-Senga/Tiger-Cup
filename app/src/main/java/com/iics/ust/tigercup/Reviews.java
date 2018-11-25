@@ -2,20 +2,47 @@ package com.iics.ust.tigercup;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reviews extends AppCompatActivity {
+    FirebaseDatabase db;
+    EditText reviewField;
+    String shopId, key, review;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
 
+        db = FirebaseDatabase.getInstance();
+
+        Bundle bundle = getIntent().getExtras();
+        shopId = bundle.getString("shopId");
+
+        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+        key = pref.getString("key", null);
+
+        reviewField = findViewById(R.id.reviewField);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
@@ -44,5 +71,34 @@ public class Reviews extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void submit(View v){
+        review =  reviewField.getText().toString().trim();
+        if(!review.equals("")){
+            DatabaseReference ref = db.getReference("users");
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String fname = dataSnapshot.child(key).child("fname").getValue().toString();
+                    String lname = dataSnapshot.child(key).child("lname").getValue().toString();
+                    addReview(fname, lname, review);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+
+                }
+            });
+        }
+    }
+
+    public void addReview(String fname, String lname, String review){
+        ReviewData reviewData = new ReviewData(fname, lname, review);
+        DatabaseReference ref = db.getReference("shops");
+        String key = ref.child(shopId).child("Reviews").push().getKey();
+        ref.child(shopId).child("Reviews").child(key).setValue(reviewData);
+        reviewField.setText("");
+        Toast.makeText(this, "Your review has been successfully published", Toast.LENGTH_SHORT).show();
     }
 }

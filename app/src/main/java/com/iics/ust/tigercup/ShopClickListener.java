@@ -55,6 +55,7 @@ public class ShopClickListener implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, Reviews.class);
+                i.putExtra("shopId", shop.Id);
                 context.startActivity(i);
             }
         });

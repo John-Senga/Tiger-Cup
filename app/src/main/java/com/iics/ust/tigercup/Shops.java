@@ -71,12 +71,13 @@ public class Shops extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<ShopData> shops = new ArrayList<>();
                 for (DataSnapshot shopSnapshot: dataSnapshot.getChildren()) {
+                    String Id = shopSnapshot.getKey();
                     String Name = shopSnapshot.child("Name").getValue().toString();
                     String Image = shopSnapshot.child("Image").getValue().toString();
                     String Category = shopSnapshot.child("Category").getValue().toString();
                     String Latitude = shopSnapshot.child("Latitude").getValue().toString();
                     String Longitude = shopSnapshot.child("Longitude").getValue().toString();
-                    ShopData data = new ShopData(Name, Category, Image, Latitude, Longitude);
+                    ShopData data = new ShopData(Id, Name, Category, Image, Latitude, Longitude);
                     shops.add(data);
                 }
 
