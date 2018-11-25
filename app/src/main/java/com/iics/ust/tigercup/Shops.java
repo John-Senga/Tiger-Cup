@@ -59,7 +59,6 @@ public class Shops extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     public void getShops(){
