@@ -1,6 +1,7 @@
 package com.iics.ust.tigercup;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,13 +19,20 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
+                SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+                String key = pref.getString("key", null);
 
-                Intent i = new Intent(SplashScreen.this, Login.class);
-
+                Intent i;
+                if(key==null) {
+                    i = new Intent(SplashScreen.this, Login.class);
+                }
+                else{
+                    i = new Intent(SplashScreen.this, Home.class);
+                }
                 SplashScreen.this.startActivity(i);
                 SplashScreen.this.finish();
             }
-        }, SPLASH_DISPLAY_LENGTH);////
+        }, SPLASH_DISPLAY_LENGTH);
     }
 
 }

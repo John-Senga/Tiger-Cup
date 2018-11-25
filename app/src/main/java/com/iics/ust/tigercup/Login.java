@@ -1,6 +1,7 @@
 package com.iics.ust.tigercup;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -54,9 +55,16 @@ public class Login extends AppCompatActivity {
     }
 
     private void login(String key){
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("data", MODE_PRIVATE);
+        SharedPreferences.Editor writer = pref.edit();
+        writer.putString("key", key);
+        writer.commit();
+
         Intent i = null;
         i = new Intent(this, Home.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+        finish();
     }
 
     public void goToRegister(View v){

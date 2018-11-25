@@ -34,7 +34,9 @@ public class Home extends AppCompatActivity {
             case R.id.logout:
                 Intent i = null;
                 i = new Intent(this, Login.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
