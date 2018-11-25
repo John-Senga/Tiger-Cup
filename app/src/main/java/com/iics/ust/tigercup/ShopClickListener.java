@@ -8,16 +8,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class ShopClickListener implements View.OnClickListener {
     ShopData shop;
     AppCompatActivity context;
-    int resourceId;
 
-    public ShopClickListener(AppCompatActivity context, ShopData shop, int resourceId) {
+    public ShopClickListener(AppCompatActivity context, ShopData shop) {
         this.shop = shop;
         this.context = context;
-        this.resourceId = resourceId;
     }
 
     @Override
@@ -30,6 +29,7 @@ public class ShopClickListener implements View.OnClickListener {
 
         //image
         ImageView img = dialog.findViewById(R.id.imageView);
+        int resourceId = context.getResources().getIdentifier(shop.Image, "drawable", context.getPackageName());
         img.setImageResource(resourceId);
 
         Button mapBtn = dialog.findViewById(R.id.map);
@@ -44,6 +44,9 @@ public class ShopClickListener implements View.OnClickListener {
                }
            }
         );
+
+        Button nextBtn = dialog.findViewById(R.id.next);
+        nextBtn.setOnClickListener(new ShopClickListener(context, shop));
 
         dialog.show();
     }

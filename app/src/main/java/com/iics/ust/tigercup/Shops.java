@@ -1,5 +1,7 @@
 package com.iics.ust.tigercup;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +31,7 @@ public class Shops extends AppCompatActivity {
         DatabaseReference ref = database.getReference("shops");
 
         ref.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<ShopData> shops = new ArrayList<>();
@@ -51,6 +54,7 @@ public class Shops extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void generateShopButtons(List<ShopData>shops){
         LinearLayout layout = findViewById(R.id.shopContainer);
         for(ShopData shop: shops){
@@ -68,7 +72,7 @@ public class Shops extends AppCompatActivity {
             btn.setBackgroundResource(resourceId);
 
             //Click Listener
-            btn.setOnClickListener(new ShopClickListener(this, shop, resourceId));
+            btn.setOnClickListener(new ShopClickListener(this, shop));
 
             //Add button to layout
             layout.addView(btn);
