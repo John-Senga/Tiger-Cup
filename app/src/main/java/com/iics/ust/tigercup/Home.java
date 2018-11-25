@@ -1,6 +1,7 @@
 package com.iics.ust.tigercup;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +33,11 @@ public class Home extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.logout:
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("data", MODE_PRIVATE);
+                SharedPreferences.Editor writer = pref.edit();
+                writer.remove("key");
+                writer.commit();
+
                 Intent i = null;
                 i = new Intent(this, Login.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
