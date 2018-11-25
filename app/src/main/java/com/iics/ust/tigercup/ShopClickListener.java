@@ -48,7 +48,7 @@ public class ShopClickListener implements View.OnClickListener {
         });
 
         Button nextBtn = dialog.findViewById(R.id.next);
-        nextBtn.setOnClickListener(new NextClickListener(context, shop, dialog));
+        nextBtn.setOnClickListener(new NextClickListener(context, shop.next, dialog));
 
         dialog.show();
     }

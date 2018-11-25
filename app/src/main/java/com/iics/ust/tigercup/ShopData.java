@@ -6,6 +6,7 @@ public class ShopData {
     public String Image;
     public String Latitude;
     public String Longitude;
+    public ShopData next;
 
     public ShopData(String Name, String Category, String Image, String Latitude, String Longitude){
         this.Name = Name;
@@ -13,5 +14,9 @@ public class ShopData {
         this.Image = Image;
         this.Latitude = Latitude;
         this.Longitude = Longitude;
+    }
+
+    public void setNext(ShopData next) {
+        this.next = next;
     }
 }

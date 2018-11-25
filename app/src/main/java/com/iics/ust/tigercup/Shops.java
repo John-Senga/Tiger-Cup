@@ -44,6 +44,11 @@ public class Shops extends AppCompatActivity {
                     ShopData data = new ShopData(Name, Category, Image, Latitude, Longitude);
                     shops.add(data);
                 }
+
+                for(int i = 0; i<shops.size(); i++){
+                    int next = (i+1)%shops.size();
+                    shops.get(i).setNext(shops.get(next));
+                }
                 generateShopButtons(shops);
             }
 
