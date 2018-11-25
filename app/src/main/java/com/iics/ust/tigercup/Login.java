@@ -37,19 +37,19 @@ public class Login extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String loginEmail = email.getText().toString().trim();
                 String loginPassword = password.getText().toString().trim();
-                Boolean loginError = true;
+                Boolean incorrect = true;
 
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     String userEmail = snapshot.child("email").getValue().toString();
                     String userPassword = snapshot.child("password").getValue().toString();
                     if(loginEmail.equals(userEmail) && loginPassword.equals(userPassword)){
                         login(snapshot.getKey());
-                        loginError = false;
+                        incorrect = false;
                         break;
                     }
                 }
 
-                if(loginError)
+                if(incorrect)
                     loginError();
             }
 
@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginError(){
-        Toast.makeText(this,"Incorrect username or password", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Incorrect email or password", Toast.LENGTH_SHORT).show();
     }
 
     public void goToRegister(View v){
