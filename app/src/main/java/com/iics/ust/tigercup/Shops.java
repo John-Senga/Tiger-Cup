@@ -46,7 +46,6 @@ public class Shops extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError error) {
-                // Failed to read value
                 Log.w("Log", "Failed to read value.", error.toException());
             }
         });

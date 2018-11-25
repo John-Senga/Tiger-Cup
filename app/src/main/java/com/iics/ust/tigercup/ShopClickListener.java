@@ -38,7 +38,6 @@ public class ShopClickListener implements View.OnClickListener {
                @Override
                public void onClick(View v) {
                    Intent i = new Intent(Intent.ACTION_VIEW);
-                   //i.setData(Uri.parse("geo:"+shop.Latitude+","+shop.Longitude+"?q="+shop.Latitude+","+shop.Longitude+"("+shop.Name+")"));
                    i.setData(Uri.parse("http://maps.google.com/maps?saddr=14.609920, 120.992033&daddr="+shop.Latitude+","+shop.Longitude));
                    Intent chooser = Intent.createChooser(i,"Please select a map application");
                    context.startActivity(chooser);
