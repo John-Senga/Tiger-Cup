@@ -38,8 +38,7 @@ public class Home extends AppCompatActivity {
                 writer.remove("key");
                 writer.commit();
 
-                Intent i = null;
-                i = new Intent(this, Login.class);
+                Intent i = new Intent(this, Login.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();

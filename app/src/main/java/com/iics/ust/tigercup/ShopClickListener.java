@@ -50,6 +50,15 @@ public class ShopClickListener implements View.OnClickListener {
         Button nextBtn = dialog.findViewById(R.id.next);
         nextBtn.setOnClickListener(new NextClickListener(context, shop.next, dialog));
 
+        Button reviewsBtn = dialog.findViewById(R.id.reviews);
+        reviewsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, Reviews.class);
+                context.startActivity(i);
+            }
+        });
+
         dialog.show();
     }
 }

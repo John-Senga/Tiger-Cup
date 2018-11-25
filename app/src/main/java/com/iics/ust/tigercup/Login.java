@@ -66,8 +66,7 @@ public class Login extends AppCompatActivity {
         writer.putString("key", key);
         writer.commit();
 
-        Intent i = null;
-        i = new Intent(this, Home.class);
+        Intent i = new Intent(this, Home.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
@@ -78,8 +77,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void goToRegister(View v){
-        Intent i = null;
-        i = new Intent(this, Register.class);
+        Intent i = new Intent(this, Register.class);
         startActivity(i);
     }
 }

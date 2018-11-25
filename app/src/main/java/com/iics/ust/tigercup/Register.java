@@ -49,8 +49,7 @@ public class Register extends AppCompatActivity {
             String key = root.push().getKey();
             root.child(key).setValue(user);
 
-            Intent i = null;
-            i = new Intent(this, Home.class);
+            Intent i = new Intent(this, Home.class);
             startActivity(i);
         }
     }

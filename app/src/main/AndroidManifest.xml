@@ -22,7 +22,8 @@
         <activity android:name=".Shops" />
         <activity android:name=".ShopModal" />
         <activity android:name=".Login" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Reviews"></activity>
     </application>
 
 </manifest>
