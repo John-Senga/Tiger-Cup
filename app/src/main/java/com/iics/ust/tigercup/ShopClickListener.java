@@ -21,6 +21,10 @@ public class ShopClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v){
+        showDialog();
+    }
+
+    public void showDialog(){
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.activity_shop_modal);
 
@@ -33,20 +37,18 @@ public class ShopClickListener implements View.OnClickListener {
         img.setImageResource(resourceId);
 
         Button mapBtn = dialog.findViewById(R.id.map);
-        mapBtn.setOnClickListener(new View.OnClickListener()
-           {
-               @Override
-               public void onClick(View v) {
-                   Intent i = new Intent(Intent.ACTION_VIEW);
-                   i.setData(Uri.parse("http://maps.google.com/maps?saddr=14.609920, 120.992033&daddr="+shop.Latitude+","+shop.Longitude));
-                   Intent chooser = Intent.createChooser(i,"Please select a map application");
-                   context.startActivity(chooser);
-               }
-           }
-        );
+        mapBtn.setOnClickListener(new View.OnClickListener(){
+              @Override
+              public void onClick(View v) {
+                  Intent i = new Intent(Intent.ACTION_VIEW);
+                  i.setData(Uri.parse("http://maps.google.com/maps?saddr=14.609920, 120.992033&daddr="+shop.Latitude+","+shop.Longitude));
+                  Intent chooser = Intent.createChooser(i,"Please select a map application");
+                  context.startActivity(chooser);
+              }
+        });
 
         Button nextBtn = dialog.findViewById(R.id.next);
-        nextBtn.setOnClickListener(new ShopClickListener(context, shop));
+        nextBtn.setOnClickListener(new NextClickListener(context, shop, dialog));
 
         dialog.show();
     }
