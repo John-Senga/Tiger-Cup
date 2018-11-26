@@ -2,6 +2,8 @@ package com.iics.ust.tigercup;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -110,6 +112,7 @@ public class Reviews extends AppCompatActivity {
     public void getReviews(){
         DatabaseReference ref = db.getReference("shops");
         ref.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<ReviewData> reviews = new ArrayList<>();
@@ -130,6 +133,7 @@ public class Reviews extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void renderReviews(List<ReviewData>reviews){
         LinearLayout layout = findViewById(R.id.reviewsContainer);
         layout.removeAllViews();
@@ -142,15 +146,26 @@ public class Reviews extends AppCompatActivity {
         }
         else {
             for (ReviewData review : reviews) {
+                LinearLayout card = new LinearLayout(this);
+                card.setBackground(this.getDrawable(R.drawable.card));
+                card.setOrientation(LinearLayout.VERTICAL);
+
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                layoutParams.setMargins(0, 0, 0, 20);
+
                 TextView nameText = new TextView(this);
                 nameText.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 nameText.setText(review.fname+" "+review.lname);
-                layout.addView(nameText);
+                nameText.setTypeface(null, Typeface.BOLD);
+                card.addView(nameText);
 
                 TextView reviewText = new TextView(this);
                 reviewText.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 reviewText.setText(review.review);
-                layout.addView(reviewText);
+                card.addView(reviewText);
+
+                layout.addView(card, layoutParams);
             }
         }
     }
