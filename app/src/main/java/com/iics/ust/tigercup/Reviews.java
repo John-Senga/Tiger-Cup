@@ -134,23 +134,21 @@ public class Reviews extends AppCompatActivity {
         layout.removeAllViews();
         if(reviews.size()==0){
             TextView text = new TextView(this);
-            text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
+            text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             text.setText("No Reviews Available");
             layout.addView(text);
         }
         else {
             for (ReviewData review : reviews) {
-                //Button with Style
-                TextView text = new TextView(this);
+                TextView nameText = new TextView(this);
+                nameText.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                nameText.setText(review.fname+" "+review.lname);
+                layout.addView(nameText);
 
-                //Width and Height
-                text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
-
-                //Text
-                text.setText(review.review);
-
-                //Add button to layout
-                layout.addView(text);
+                TextView reviewText = new TextView(this);
+                reviewText.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                reviewText.setText(review.review);
+                layout.addView(reviewText);
             }
         }
     }
