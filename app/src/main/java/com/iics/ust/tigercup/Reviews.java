@@ -13,6 +13,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +47,8 @@ public class Reviews extends AppCompatActivity {
         reviewField = findViewById(R.id.reviewField);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getReviews();
     }
 
     @Override
@@ -100,5 +104,54 @@ public class Reviews extends AppCompatActivity {
         ref.child(shopId).child("Reviews").child(key).setValue(reviewData);
         reviewField.setText("");
         Toast.makeText(this, "Your review has been successfully published", Toast.LENGTH_SHORT).show();
+    }
+
+    public void getReviews(){
+        DatabaseReference ref = db.getReference("shops");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<ReviewData> reviews = new ArrayList<>();
+                for (DataSnapshot snapshot: dataSnapshot.child(shopId).child("Reviews").getChildren()) {
+                    String fname = snapshot.child("fname").getValue().toString();
+                    String lname = snapshot.child("lname").getValue().toString();
+                    String review = snapshot.child("review").getValue().toString();
+                    ReviewData reviewData = new ReviewData(fname,lname,review);
+                    reviews.add(reviewData);
+                }
+                renderReviews(reviews);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void renderReviews(List<ReviewData>reviews){
+        LinearLayout layout = findViewById(R.id.reviewsContainer);
+        layout.removeAllViews();
+        if(reviews.size()==0){
+            TextView text = new TextView(this);
+            text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
+            text.setText("No Reviews Available");
+            layout.addView(text);
+        }
+        else {
+            for (ReviewData review : reviews) {
+                //Button with Style
+                TextView text = new TextView(this);
+
+                //Width and Height
+                text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
+
+                //Text
+                text.setText(review.review);
+
+                //Add button to layout
+                layout.addView(text);
+            }
+        }
     }
 }
