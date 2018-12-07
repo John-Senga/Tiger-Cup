@@ -49,22 +49,25 @@ public class Home extends AppCompatActivity {
     }
 
     public void goToShops(View v){
-        Intent i = null;
+        Intent i = new Intent(this, Shops.class);
 
         if(v.getId() == R.id.cafe){
             Log.d("Log","The user has selected cafe");
+            i.putExtra("category", "CAFE");
         }
         if(v.getId() == R.id.study_hub){
             Log.d("Log","The user has selected study hub");
+            i.putExtra("category", "STUDY HUB");
         }
         if(v.getId() == R.id.leisure){
             Log.d("Log","The user has selected leisure");
+            i.putExtra("category", "LEISURE");
         }
         if(v.getId() == R.id.relaxation){
             Log.d("Log","The user has selected relaxation");
+            i.putExtra("category", "RELAXATION");
         }
 
-        i = new Intent(this, Shops.class);
         startActivity(i);
     }
 }

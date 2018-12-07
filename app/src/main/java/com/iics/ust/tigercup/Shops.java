@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,12 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shops extends AppCompatActivity {
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shops);
         getShops();
+
+        Bundle bundle = getIntent().getExtras();
+        category = bundle.getString("category");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -71,14 +76,16 @@ public class Shops extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<ShopData> shops = new ArrayList<>();
                 for (DataSnapshot shopSnapshot: dataSnapshot.getChildren()) {
-                    String Id = shopSnapshot.getKey();
-                    String Name = shopSnapshot.child("Name").getValue().toString();
-                    String Image = shopSnapshot.child("Image").getValue().toString();
                     String Category = shopSnapshot.child("Category").getValue().toString();
-                    String Latitude = shopSnapshot.child("Latitude").getValue().toString();
-                    String Longitude = shopSnapshot.child("Longitude").getValue().toString();
-                    ShopData data = new ShopData(Id, Name, Category, Image, Latitude, Longitude);
-                    shops.add(data);
+                    if(Category.equalsIgnoreCase(category)) {
+                        String Id = shopSnapshot.getKey();
+                        String Name = shopSnapshot.child("Name").getValue().toString();
+                        String Image = shopSnapshot.child("Image").getValue().toString();
+                        String Latitude = shopSnapshot.child("Latitude").getValue().toString();
+                        String Longitude = shopSnapshot.child("Longitude").getValue().toString();
+                        ShopData data = new ShopData(Id, Name, Category, Image, Latitude, Longitude);
+                        shops.add(data);
+                    }
                 }
 
                 for(int i = 0; i<shops.size(); i++){
