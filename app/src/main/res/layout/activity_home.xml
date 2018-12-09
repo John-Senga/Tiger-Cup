@@ -26,39 +26,49 @@
 
             <Button
                 android:id="@+id/cafe"
-                style="@style/ButtonStyle"
+                style="@style/CAFE"
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/cafe"
                 android:onClick="goToShops"
-                android:text="Cafe" />
+                android:fontFamily="@font/chelsea_market"
+                android:text="CAFE"/>
 
             <Button
                 android:id="@+id/study_hub"
-                style="@style/ButtonStyle"
+                style="@style/STUDYHUB"
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/studyhub"
                 android:onClick="goToShops"
-                android:text="Study Hub" />
+                android:fontFamily="@font/chelsea_market"
+                android:text="STUDY HUB"/>
 
             <Button
                 android:id="@+id/leisure"
-                style="@style/ButtonStyle"
+                style="@style/LEISURE"
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/leisure"
                 android:onClick="goToShops"
-                android:text="Leisure" />
+                android:fontFamily="@font/chelsea_market"
+                android:text="LEISURE" />
 
             <Button
                 android:id="@+id/relaxation"
-                style="@style/ButtonStyle"
+                style="@style/RELAXATION"
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:background="@drawable/relaxation"
                 android:onClick="goToShops"
-                android:text="Relaxation" />
+                android:fontFamily="@font/chelsea_market"
+                android:text="RELAXATION" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>

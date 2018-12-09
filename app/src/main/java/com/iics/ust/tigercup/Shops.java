@@ -110,7 +110,7 @@ public class Shops extends AppCompatActivity {
             Button btn = new Button(this, null, 0, R.style.ButtonStyle);
 
             //Width and Height
-            btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 250));
+            btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 550));
 
             //Text
             btn.setText(shop.Name);

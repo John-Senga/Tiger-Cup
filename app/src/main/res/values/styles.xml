@@ -10,7 +10,70 @@
 
     <style name="ButtonStyle" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:textColor">#fff</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name = "buttonLogin">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">#fafafa</item>
+    </style>
+
+    <style name = "buttonModal">
+        <item name="android:background">@drawable/modal_button</item>
+        <item name="android:textColor">#fafafa</item>
+    </style>
+
+    <style name = "buttonModalMap">
+        <item name="android:background">@drawable/modalbutton_map</item>
+        <item name="android:textColor">#fafafa</item>
+    </style>
+
+    <style name = "buttonModalNext">
+        <item name="android:background">@drawable/modalbutton_next</item>
+        <item name="android:textColor">#fafafa</item>
+    </style>
+
+    <style name = "buttonSubmit">
+        <item name="android:background">@drawable/button_submit</item>
+        <item name="android:textColor">#fafafa</item>
+    </style>
+
+    <style name = "buttonCreateAccount">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">#fafafa</item>
+    </style>
+
+    <style name = "CAFE">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:text">CAFE</item>
+    </style>
+
+    <style name = "STUDYHUB">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:text">STUDYHUB</item>
+    </style>
+
+    <style name = "LEISURE">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:text">LEISURE</item>
+    </style>
+
+    <style name = "RELAXATION">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">55sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:text">RELAXATION</item>
     </style>
 
 </resources>

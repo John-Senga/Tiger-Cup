@@ -10,6 +10,18 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="605dp"
+        android:layout_height="676dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/background" />
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -20,9 +32,10 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/container"
@@ -55,15 +68,23 @@
 
                     <Button
                         android:id="@+id/submit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginTop="8dp"
+                        style="@style/buttonSubmit"
+                        android:layout_width="116dp"
+                        android:layout_height="36dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="92dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="92dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
                         android:onClick="submit"
                         android:text="Submit"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintHorizontal_bias="0.94"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
                 </android.support.constraint.ConstraintLayout>
 
             </LinearLayout>
